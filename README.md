@@ -1,5 +1,5 @@
 # node-express-sequelize
-Test educational template project of `Node.js` `REST server`, based on `Express`, `Sequelize`, `TypeScript`.  
+Test educational template project of `Node.js` `REST server`, based on `Express`, `Sequelize` using `TypeScript`.  
 Configured for `VSCode` IDE.
 
 ## Links:
