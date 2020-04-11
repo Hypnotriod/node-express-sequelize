@@ -11,7 +11,7 @@ export default class SavePostController {
     constructor(private pageService: PostService) { }
 
     @Get(':postName')
-    private async savepost(req: Request, res: Response) {
+    private async savePost(req: Request, res: Response) {
         const pageModel: PostModel = await this.pageService.create(req.params.postName, req.query.text as string);
         res.send(pageModel
             ? JSON.stringify(pageModel)
