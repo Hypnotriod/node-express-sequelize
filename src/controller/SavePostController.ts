@@ -13,10 +13,8 @@ export default class SavePostController {
     @Get(':postName')
     private async savepost(req: Request, res: Response) {
         const pageModel: PostModel = await this.pageService.create(req.params.postName, req.query.text as string);
-        if (pageModel) {
-            res.send(JSON.stringify(pageModel));
-        } else {
-            res.send('Operation failed!');
-        }
+        res.send(pageModel
+            ? JSON.stringify(pageModel)
+            : 'Operation failed!');
     }
 }

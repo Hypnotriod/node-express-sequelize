@@ -3,7 +3,9 @@ import { singleton } from "tsyringe";
 
 @singleton()
 export class PostRepository {
-    constructor() { }
+    constructor() {
+        this.sync();
+    }
 
     public async sync() {
         await PostModel.sync({ force: false });

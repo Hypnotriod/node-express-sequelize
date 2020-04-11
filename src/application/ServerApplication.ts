@@ -42,8 +42,6 @@ export default class ServerApplication extends Server {
         this.sequelize.addModels([
             PostModel
         ])
-
-        PostModel.sync({ force: false });
     }
 
     private async establishDBConnection() {
