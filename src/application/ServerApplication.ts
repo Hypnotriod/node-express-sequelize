@@ -19,10 +19,10 @@ export default class ServerApplication extends Server {
         this.launch(config);
     }
 
-    private launch(config: ServerApplicationConfig) {
+    private async launch(config: ServerApplicationConfig) {
         this.initializeDatabase(config);
         this.initializeModels();
-        this.establishDBConnection();
+        await this.establishDBConnection();
         this.initControllers();
         this.startServer(config);
     }
@@ -44,9 +44,9 @@ export default class ServerApplication extends Server {
         ])
     }
 
-    private async establishDBConnection() {
+    private async establishDBConnection(): Promise<void> {
         try {
-            await this.sequelize.authenticate();
+            return this.sequelize.authenticate();
         } catch (err) {
             console.error('Unable to connect to the database: ', err);
             throw err;
