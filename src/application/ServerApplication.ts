@@ -1,12 +1,12 @@
 import * as bodyParser from 'body-parser';
 import { Sequelize } from 'sequelize-typescript';
-import { ServerApplicationConfig } from './ServerApplicationConfig';
 import { Server } from '@overnightjs/core';
+import { container } from 'tsyringe';
+import PostModel from '../model/PostModel';
+import ServerApplicationConfig from './ServerApplicationConfig';
 import RootController from '../controller/RootController';
-import { PostModel } from '../model/PostModel';
 import ReadPostController from '../controller/ReadPostController';
 import SavePostController from '../controller/SavePostController';
-import { container } from 'tsyringe';
 
 /**
  *

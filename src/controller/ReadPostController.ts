@@ -2,7 +2,7 @@ import { injectable, singleton } from 'tsyringe';
 import { Request, Response } from 'express';
 import { Controller, Get } from '@overnightjs/core';
 import { PostService } from '../service/PostService';
-import { PostModel } from '../model/PostModel';
+import PostModel from '../model/PostModel';
 
 /**
  *
@@ -19,7 +19,7 @@ export default class ReadPostController {
     private async readPost(req: Request, res: Response): Promise<void> {
         const postModels: PostModel[] = await this.pageService.findAllByName(req.params.postName);
         res.send(postModels.length
-            ? JSON.stringify(postModels[0])
+            ? JSON.stringify(postModels)
             : 'Post not found');
     }
 }

@@ -2,7 +2,7 @@ import { injectable, singleton } from 'tsyringe';
 import { Request, Response } from 'express';
 import { Controller, Get } from '@overnightjs/core';
 import { PostService } from '../service/PostService';
-import { PostModel } from '../model/PostModel';
+import PostModel from '../model/PostModel';
 
 /**
  *
@@ -17,9 +17,9 @@ export default class SavePostController {
 
     @Get(':postName')
     private async savePost(req: Request, res: Response): Promise<void> {
-        const pageModel: PostModel = await this.pageService.create(req.params.postName, req.query.text as string);
-        res.send(pageModel
-            ? JSON.stringify(pageModel)
+        const postModel: PostModel = await this.pageService.create(req.params.postName, req.query.text as string);
+        res.send(postModel
+            ? JSON.stringify(postModel)
             : 'Operation failed!');
     }
 }

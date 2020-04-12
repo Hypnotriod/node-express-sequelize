@@ -6,7 +6,7 @@ import { Table, Column, Model } from 'sequelize-typescript';
  */
 
 @Table({ tableName: 'post' })
-export class PostModel extends Model<PostModel> {
+export default class PostModel extends Model<PostModel> {
 
     @Column
     name: string;

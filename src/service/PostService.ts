@@ -1,7 +1,7 @@
 
 import { injectable, singleton } from 'tsyringe';
-import { PostModel } from '../model/PostModel';
 import { Model } from 'sequelize/types';
+import PostModel from '../model/PostModel';
 
 /**
  *

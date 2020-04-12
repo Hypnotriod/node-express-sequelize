@@ -5,7 +5,7 @@ import { Dialect } from 'sequelize/types';
  * @author Ilya Pikin
  */
 
-export interface ServerApplicationConfig {
+export default interface ServerApplicationConfig {
     production: boolean;
     serverPort: number;
     dbHost: string;
