@@ -1,4 +1,4 @@
-import ServerApplication from "./application/ServerApplication";
+import ServerApplication from './application/ServerApplication';
 
 new ServerApplication({
   production: false,

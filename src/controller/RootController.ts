@@ -9,7 +9,7 @@ export default class RootController {
     constructor() { }
 
     @Get()
-    private getRootPage(req: Request, res: Response) {
+    private getRootPage(req: Request, res: Response): void {
         res.send('Root page');
     }
 }

@@ -1,7 +1,7 @@
 
-import { injectable, singleton } from "tsyringe";
-import { PostModel } from "../model/PostModel";
-import { Model } from "sequelize/types";
+import { injectable, singleton } from 'tsyringe';
+import { PostModel } from '../model/PostModel';
+import { Model } from 'sequelize/types';
 
 @injectable()
 @singleton()

@@ -6,7 +6,7 @@ import RootController from '../controller/RootController';
 import { PostModel } from '../model/PostModel';
 import ReadPostController from '../controller/ReadPostController';
 import SavePostController from '../controller/SavePostController';
-import { container } from "tsyringe";
+import { container } from 'tsyringe';
 
 export default class ServerApplication extends Server {
     private sequelize: Sequelize;
@@ -19,7 +19,7 @@ export default class ServerApplication extends Server {
         this.launch(config);
     }
 
-    private async launch(config: ServerApplicationConfig) {
+    private async launch(config: ServerApplicationConfig): Promise<void> {
         this.initializeDatabase(config);
         this.initializeModels();
         await this.establishDBConnection();
@@ -27,7 +27,7 @@ export default class ServerApplication extends Server {
         this.startServer(config);
     }
 
-    private initializeDatabase(config: ServerApplicationConfig) {
+    private initializeDatabase(config: ServerApplicationConfig): void {
         this.sequelize = new Sequelize({
             database: config.dbName,
             username: config.dbUserName,
@@ -38,10 +38,10 @@ export default class ServerApplication extends Server {
         });
     }
 
-    private initializeModels() {
+    private initializeModels(): void {
         this.sequelize.addModels([
             PostModel
-        ])
+        ]);
     }
 
     private async establishDBConnection(): Promise<void> {
@@ -53,7 +53,7 @@ export default class ServerApplication extends Server {
         }
     }
 
-    private initControllers() {
+    private initControllers(): void {
         super.addControllers([
             container.resolve(RootController),
             container.resolve(ReadPostController),
@@ -61,7 +61,7 @@ export default class ServerApplication extends Server {
         ]);
     }
 
-    private startServer(config: ServerApplicationConfig) {
+    private startServer(config: ServerApplicationConfig): void {
         this.app.listen(config.serverPort);
     }
 }
