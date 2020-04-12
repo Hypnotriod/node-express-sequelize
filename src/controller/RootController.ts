@@ -2,6 +2,11 @@ import { Request, Response } from 'express';
 import { Controller, Get } from '@overnightjs/core';
 import { injectable, singleton } from 'tsyringe';
 
+/**
+ *
+ * @author Ilya Pikin
+ */
+
 @injectable()
 @singleton()
 @Controller('/')

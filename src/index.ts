@@ -1,5 +1,10 @@
 import ServerApplication from './application/ServerApplication';
 
+/**
+ *
+ * @author Ilya Pikin
+ */
+
 new ServerApplication({
   production: false,
   serverPort: 3000,

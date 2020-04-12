@@ -3,6 +3,11 @@ import { injectable, singleton } from 'tsyringe';
 import { PostModel } from '../model/PostModel';
 import { Model } from 'sequelize/types';
 
+/**
+ *
+ * @author Ilya Pikin
+ */
+
 @injectable()
 @singleton()
 export class PostService {

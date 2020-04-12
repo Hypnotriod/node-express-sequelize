@@ -1,5 +1,10 @@
 import { Dialect } from 'sequelize/types';
 
+/**
+ *
+ * @author Ilya Pikin
+ */
+
 export interface ServerApplicationConfig {
     production: boolean;
     serverPort: number;

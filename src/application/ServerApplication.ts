@@ -8,6 +8,11 @@ import ReadPostController from '../controller/ReadPostController';
 import SavePostController from '../controller/SavePostController';
 import { container } from 'tsyringe';
 
+/**
+ *
+ * @author Ilya Pikin
+ */
+
 export default class ServerApplication extends Server {
     private sequelize: Sequelize;
 

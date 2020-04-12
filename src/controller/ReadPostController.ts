@@ -4,6 +4,11 @@ import { Controller, Get } from '@overnightjs/core';
 import { PostService } from '../service/PostService';
 import { PostModel } from '../model/PostModel';
 
+/**
+ *
+ * @author Ilya Pikin
+ */
+
 @injectable()
 @singleton()
 @Controller('')
