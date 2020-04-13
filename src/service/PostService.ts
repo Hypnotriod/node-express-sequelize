@@ -11,13 +11,7 @@ import PostModel from '../model/PostModel';
 @injectable()
 @singleton()
 export class PostService {
-    constructor() {
-        this.sync();
-    }
-
-    public async sync(): Promise<Model<any, any>> {
-        return PostModel.sync({ force: false });
-    }
+    constructor() { }
 
     public async create(name: string, text: string): Promise<PostModel | null> {
         if (name && text) {

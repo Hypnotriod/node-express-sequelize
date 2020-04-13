@@ -14,4 +14,5 @@ export default interface ServerApplicationConfig {
     dbName: string;
     dbUserName: string;
     dbPassword: string;
+    syncModelsForce: boolean;
 }

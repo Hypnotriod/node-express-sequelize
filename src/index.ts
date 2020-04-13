@@ -13,5 +13,6 @@ new ServerApplication({
   dbDialect: 'postgres',
   dbName: 'node_db',
   dbUserName: 'node_user',
-  dbPassword: '1234'
+  dbPassword: '1234',
+  syncModelsForce: false
 });
