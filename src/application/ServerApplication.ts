@@ -28,7 +28,7 @@ export default class ServerApplication extends Server {
         this.initializeDatabase(config);
         this.initializeModels();
         await this.establishDBConnection();
-        await this.syncModels(config.syncModelsForce);
+        await this.syncModels(config);
         this.initControllers();
         this.startServer(config);
     }
@@ -59,8 +59,8 @@ export default class ServerApplication extends Server {
         }
     }
 
-    private async syncModels(force: boolean): Promise<Sequelize> {
-        return this.sequelize.sync({ force });
+    private async syncModels(config: ServerApplicationConfig): Promise<Sequelize> {
+        return this.sequelize.sync({ force: config.syncModelsForce });
     }
 
     private initControllers(): void {
