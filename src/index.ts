@@ -6,7 +6,7 @@ import ServerApplication from './application/ServerApplication';
  */
 
 new ServerApplication({
-  production: false,
+  production: (process.env.NODE_ENV === 'production'),
   serverPort: 3000,
   dbHost: 'localhost',
   dbPort: 5432,

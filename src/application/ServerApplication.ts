@@ -2,11 +2,13 @@ import * as bodyParser from 'body-parser';
 import { Sequelize } from 'sequelize-typescript';
 import { Server } from '@overnightjs/core';
 import { container } from 'tsyringe';
+import { Logger } from '@overnightjs/logger';
 import PostModel from '../model/PostModel';
 import ServerApplicationConfig from './ServerApplicationConfig';
 import RootController from '../controller/RootController';
 import ReadPostController from '../controller/ReadPostController';
 import SavePostController from '../controller/SavePostController';
+import FaviconController from '../controller/FaviconController';
 
 /**
  *
@@ -18,19 +20,22 @@ export default class ServerApplication extends Server {
 
     constructor(config: ServerApplicationConfig) {
         super(config.production === false);
-        this.app.use(bodyParser.json());
-        this.app.use(bodyParser.urlencoded({ extended: true }));
-
         this.launch(config);
     }
 
     private async launch(config: ServerApplicationConfig): Promise<void> {
+        this.initializeRouterHandles();
         this.initializeDatabase(config);
         this.initializeModels();
         await this.establishDBConnection();
         await this.syncModels(config);
         this.initControllers();
         this.startServer(config);
+    }
+
+    private initializeRouterHandles(): void {
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: true }));
     }
 
     private initializeDatabase(config: ServerApplicationConfig): void {
@@ -41,6 +46,7 @@ export default class ServerApplication extends Server {
             host: config.dbHost,
             port: config.dbPort,
             dialect: config.dbDialect,
+            logging: !config.production,
         });
     }
 
@@ -54,7 +60,8 @@ export default class ServerApplication extends Server {
         try {
             return this.sequelize.authenticate();
         } catch (err) {
-            console.error('Unable to connect to the database: ', err);
+            Logger.Err('Unable to connect to the database.');
+            Logger.Err(err, true);
             throw err;
         }
     }
@@ -65,6 +72,7 @@ export default class ServerApplication extends Server {
 
     private initControllers(): void {
         super.addControllers([
+            container.resolve(FaviconController),
             container.resolve(RootController),
             container.resolve(ReadPostController),
             container.resolve(SavePostController),

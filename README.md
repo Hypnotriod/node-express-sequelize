@@ -8,6 +8,7 @@ Configured for `VSCode` IDE.
 * [sequelize documentation](https://sequelize.org/v5/)
 * [sequelize-typescript](https://www.npmjs.com/package/sequelize-typescript)
 * [overnightjs](https://www.npmjs.com/package/@overnightjs/core)
+* [overnightjs logger](https://www.npmjs.com/package/@overnightjs/logger)
 * [tsyringe](https://www.npmjs.com/package/tsyringe)
 * [webpack production guide](https://webpack.js.org/guides/production/)
 * [typeScript compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)

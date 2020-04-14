@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   target: 'node',
+  mode: 'production',
   externals: {
     'pg-native': 'pg-native'
   },
@@ -16,5 +17,4 @@ module.exports = {
     filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  mode: 'production',
 };
