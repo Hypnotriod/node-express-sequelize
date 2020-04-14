@@ -10,7 +10,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "launch-debug": "concurrently --kill-others \"npm run debug\" \"npm run watch\"",
-    "launch-debug-brk": "concurrently --kill-others \"npm run debug-brk\" \"npm run watch\""
+    "launch-debug-brk": "concurrently --kill-others \"npm run debug-brk\" \"npm run watch\"",
+    "bundle": "tsc && webpack --config webpack.server.config.js"
   },
   "author": "Ilya Pikin",
   "license": "ISC",
@@ -31,9 +32,13 @@
     "@types/express": "^4.17.6",
     "@types/node": "^13.11.1",
     "@types/validator": "^13.0.0",
+    "clean-webpack-plugin": "^3.0.0",
     "concurrently": "^5.1.0",
     "nodemon": "^2.0.3",
     "tslint": "^6.1.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   }
 }

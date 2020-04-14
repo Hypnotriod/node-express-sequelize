@@ -13,7 +13,7 @@ import PostModel from '../model/PostModel';
 @singleton()
 @Controller('save_post')
 export default class SavePostController {
-    constructor(private pageService: PostService) { }
+    constructor(private readonly pageService: PostService) { }
 
     @Get(':postName')
     private async savePost(req: Request, res: Response): Promise<void> {

@@ -13,7 +13,7 @@ import PostModel from '../model/PostModel';
 @singleton()
 @Controller('')
 export default class ReadPostController {
-    constructor(private pageService: PostService) { }
+    constructor(private readonly pageService: PostService) { }
 
     @Get(':postName')
     private async readPost(req: Request, res: Response): Promise<void> {
