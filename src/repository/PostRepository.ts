@@ -1,3 +1,4 @@
+import { singleton } from 'tsyringe';
 import PostModel from '../model/PostModel';
 
 /**
@@ -5,6 +6,7 @@ import PostModel from '../model/PostModel';
  * @author Ilya Pikin
  */
 
+@singleton()
 export default class PostRepository {
     public async create(name: string, text: string): Promise<PostModel> {
         return PostModel.create({ name, text });
