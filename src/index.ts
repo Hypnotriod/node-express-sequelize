@@ -7,7 +7,7 @@ import ServerApplication from './application/ServerApplication';
 
 new ServerApplication({
   production: (process.env.NODE_ENV === 'production'),
-  serverPort: 3000,
+  serverPort: Number(process.env.PORT) || 3000,
   dbHost: 'localhost',
   dbPort: 5432,
   dbDialect: 'postgres',

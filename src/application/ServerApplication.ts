@@ -3,6 +3,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { Server } from '@overnightjs/core';
 import { container } from 'tsyringe';
 import { Logger } from '@overnightjs/logger';
+import http from 'http';
 import PostModel from '../model/PostModel';
 import ServerApplicationConfig from './ServerApplicationConfig';
 import RootController from '../controller/RootController';
@@ -80,6 +81,6 @@ export default class ServerApplication extends Server {
     }
 
     private startServer(config: ServerApplicationConfig): void {
-        this.app.listen(config.serverPort);
+        http.createServer(this.app).listen(config.serverPort);
     }
 }
