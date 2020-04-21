@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "launch": "tsc && node build/index.js",
-    "debug-brk": "node --nolazy --inspect-brk=9229 build/index.js",
+    "debug-brk": "tsc && node --nolazy --inspect-brk=9229 build/index.js",
     "nodeamon-debug": "nodemon --inspect --debug-port=9229 build/index.js",
     "nodeamon-debug-brk": "nodemon --inspect-brk --debug-port=9229 build/index.js",
     "watch-nodeamon-debug": "concurrently --kill-others \"npm run watch\" \"npm run nodeamon-debug\"",
