@@ -13,6 +13,6 @@ export default interface ServerApplicationConfig {
     dbDialect: Dialect;
     dbName: string;
     dbUserName: string;
-    dbPassword: string;
+    dbUserPassword: string;
     syncModelsForce: boolean;
 }

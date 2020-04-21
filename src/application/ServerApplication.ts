@@ -43,7 +43,7 @@ export default class ServerApplication extends Server {
         this.sequelize = new Sequelize({
             database: config.dbName,
             username: config.dbUserName,
-            password: config.dbPassword,
+            password: config.dbUserPassword,
             host: config.dbHost,
             port: config.dbPort,
             dialect: config.dbDialect,

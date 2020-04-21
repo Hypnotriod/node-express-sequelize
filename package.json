@@ -7,8 +7,8 @@
     "debug-brk": "node --nolazy --inspect-brk=9229 build/index.js",
     "nodeamon-debug": "nodemon --inspect --debug-port=9229 build/index.js",
     "nodeamon-debug-brk": "nodemon --inspect-brk --debug-port=9229 build/index.js",
-    "watch-nodeamon-debug": "concurrently --kill-others \"npm run nodeamon-debug\" \"npm run watch\"",
-    "watch-nodeamon-debug-brk": "concurrently --kill-others \"npm run nodeamon-debug-brk\" \"npm run watch\"",
+    "watch-nodeamon-debug": "concurrently --kill-others \"npm run watch\" \"npm run nodeamon-debug\"",
+    "watch-nodeamon-debug-brk": "concurrently --kill-others \"npm run watch\" \"npm run nodeamon-debug-brk\"",
     "build": "tsc",
     "watch": "tsc -w",
     "build-bundle": "tsc && webpack --config webpack.server.config.js"
