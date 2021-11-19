@@ -1,12 +1,13 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   target: 'node',
   mode: 'production',
-  externals: {
-    'pg-native': 'pg-native'
-  },
+  externals: [
+    nodeExternals()
+  ],
   entry: {
     app: './build/index.js',
   },
